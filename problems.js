@@ -11,18 +11,21 @@ function averageOfTwo(num1, num2) {
 }
 
 function averageOfFour(num1, num2, num3, num4) {
+  return (num1 + num2 + num3 + num4) / 4;
   /* Takes in four numbers. The function should return the average of all of
     the numbers. */
   // Your code here
 }
 
 function doubler(nums) {
+  return nums.map(num => num * 2);
   /* Takes an array of numbers and returns a new array where every element of
     the original array is multiplied by 2. */
   // Your code here
 }
 
 function combineArrays(arr1, arr2) {
+  return [...arr1, ...arr2];
   /* Takes in two arrays of numbers and returns the two arrays combined into
     a single array. **Hint**: Use the `Array.concat` method but be aware that
     calling this method won't permanently change, also known as **mutate**,
@@ -31,6 +34,7 @@ function combineArrays(arr1, arr2) {
 }
 
 function wordWithinArray(word, arr) {
+  return arr.indexOf(word) > -1;
   /* Takes in both a word and an array of words as arguments and returns a
     boolean that returns true if that string is located inside of the array, or
     false if it does not. Use `Array.indexOf`. */
@@ -38,6 +42,7 @@ function wordWithinArray(word, arr) {
 }
 
 function echo(str) {
+  return str.toUpperCase() + ' ... ' + str + ' ... ' + str.toLowerCase();
   /* Takes in a string and returns that string "echo-ized". E.g. 
     echo("Mom!"); // => returns "MOM! ... Mom! ... mom!"
     echo("hey"); // => returns "HEY ... hey ... hey"
@@ -46,34 +51,46 @@ function echo(str) {
 }
 
 function fizzBuzz(max) {
+  let res = [];
+  for (let i = 0; i < max; i++) {
+    if (i % 15 !== 0 && (i % 5 === 0 || i % 3 === 0)) {
+      res.push(i);
+    }
+  }
+  return res;
   /* Takes a number, max and returns an array that contains every number from
     0 to max (not inclusive) that is divisible by either 3 or 5, **but not both**. */
   // Your code here
 }
 
 function hello(name) {
+  return `Hello, ${name}`;
   /* Takes in a string name and returns a string saying "Hello, " to that name. */
   // Your code here
 }
 
 function goodbye(name) {
+  return `Bye, ${name}`;
   /* Takes in a string name and returns a string saying "Bye, " to that name. */
   // Your code here
 }
 
 function isFive(num) {
+  return num === 5;
   /* Takes in a number, num, and returns `true` if a number is equal to 5 and
     `false` if it is not. */
   // Your code here
 }
 
 function isOdd(num) {
+  return num % 2 === 1;
   /* Takes in a number and returns `true` if the number is odd and returns
     `false` otherwise. Try writing this with and without `if` statements */
   // Your code here
 }
 
 function isSubString(searchString, subString) {
+  return searchString.toUpperCase().indexOf(subString.toUpperCase()) > -1;
   /* Takes in two strings, `searchString` and `subString`. Should return
     `true` if `subString` is a part of the`searchString`, regardless of upper
     or lower case, and `false` if otherwise. */
@@ -81,6 +98,15 @@ function isSubString(searchString, subString) {
 }
 
 function aCounter(word) {
+  let index = 0;
+  let count = 0;
+  for (; index < word.length; index++) {
+    let char = word[index];
+    if (char === 'a' || char === 'A') {
+      count += 1;
+    }
+  }
+  return count;
   /* Takes in a word and returns the number of a's within that word. Counts
     both lowercase (a) and uppercase (A). Your job is to translate the following
     function to use a `for` loop instead of the `while` loop it is currently
